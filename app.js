@@ -8,16 +8,16 @@ const app = express();
 
 const playerRoutes = require('./routes/player.routes');
 const homeRoutes = require('./routes/index.routes');
-const port = 2000;
+const port = process.env.PORT;
 
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 const db = mysql.createConnection ({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'socka'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
 });
 
 // connect to database
